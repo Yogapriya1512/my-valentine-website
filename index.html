@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Valentine</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffcccb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #fff;
+    }
+    .container {
+      text-align: center;
+      border-radius: 10px;
+      padding: 30px;
+      background-color: #ff6666;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      width: 80%;
+      max-width: 400px;
+    }
+    button {
+      background-color: #ff3366;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #ff6699;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="question-container">
+    <h2 id="question">Will you be my Valentine?</h2>
+    <button onclick="handleResponse('yes')">Yes</button>
+    <button onclick="handleResponse('no')">No</button>
+  </div>
+
+  <script>
+    let step = 1;
+
+    function handleResponse(answer) {
+      const questionElement = document.getElementById('question');
+      
+      if (step === 1) {
+        if (answer === 'yes') {
+          questionElement.innerHTML = "Yay! Thank you, Love you! 💕";
+          endConversation();
+        } else {
+          questionElement.innerHTML = "You love to be my Valentine?";
+          step = 2;
+          updateButtons();
+        }
+      } else if (step === 2) {
+        if (answer === 'yes') {
+          questionElement.innerHTML = "Aww, you're the best! 💖";
+          endConversation();
+        } else {
+          questionElement.innerHTML = "You have to be my Valentine? 😘";
+          step = 3;
+          updateButtons();
+        }
+      } else if (step === 3) {
+        if (answer === 'yes') {
+          questionElement.innerHTML = "I knew it! ❤️ You're my Valentine now!";
+        } else {
+          questionElement.innerHTML = "Looks like you need some convincing! 💖will you??";
+        }
+        endConversation();
+      }
+    }
+
+    function updateButtons() {
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(button => button.style.display = 'inline-block');  // Show buttons again after switching questions
+    }
+
+    function endConversation() {
+      const buttons = 
