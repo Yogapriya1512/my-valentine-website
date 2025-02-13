@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -41,7 +41,7 @@
 </head>
 <body>
   <div class="container" id="question-container">
-    <h2 id="question">Will you be my Valentine?</h2>
+    <h2 id="question">Hi Debore Will you be my Valentine?</h2>
     <button onclick="handleResponse('yes')">Yes</button>
     <button onclick="handleResponse('no')">No</button>
   </div>
@@ -54,10 +54,10 @@
       
       if (step === 1) {
         if (answer === 'yes') {
-          questionElement.innerHTML = "Yay! Thank you, Love you! 💕";
+          questionElement.innerHTML = "Yay! Thank you, I Love you! 💕";
           endConversation();
         } else {
-          questionElement.innerHTML = "You love to be my Valentine?";
+          questionElement.innerHTML = "Are you sure. Let me ask again. You like to be my Valentine?";
           step = 2;
           updateButtons();
         }
@@ -66,15 +66,15 @@
           questionElement.innerHTML = "Aww, you're the best! 💖";
           endConversation();
         } else {
-          questionElement.innerHTML = "You have to be my Valentine? 😘";
+          questionElement.innerHTML = "Think babe. You have to be my Valentine? 😘";
           step = 3;
           updateButtons();
         }
       } else if (step === 3) {
         if (answer === 'yes') {
-          questionElement.innerHTML = "I knew it! ❤️ You're my Valentine now!";
+          questionElement.innerHTML = "I knew it! ❤️ Yay You're my Valentine now!";
         } else {
-          questionElement.innerHTML = "Looks like you need some convincing! 💖will you??";
+          questionElement.innerHTML = "Poor Boy. Sorry Cant Escape. You are my valentine 💖";
         }
         endConversation();
       }
@@ -86,4 +86,9 @@
     }
 
     function endConversation() {
-      const buttons = 
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(button => button.style.display = 'none');  // Hide buttons after final answer
+    }
+  </script>
+</body>
+</html>
